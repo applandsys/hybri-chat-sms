@@ -22,7 +22,12 @@ const sidebarNavItems: NavItem[] = [
 
 const page = usePage();
 
-const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.location).pathname : '';
+// const currentPath = page.props.ziggy?.location ? new URL(page.props.ziggy.location).pathname : '';
+
+const ziggyLocation = page.props.ziggy?.location || '';
+const currentPath = ziggyLocation.startsWith('http://')
+    ? ziggyLocation.replace('http://', 'https://')
+    : ziggyLocation ? new URL(ziggyLocation).pathname : '';
 </script>
 
 <template>

@@ -23,3 +23,4 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/send-sms', [SmsController::class, 'sendSms']);
+Route::get('/caller-id', [SmsController::class, 'getCallerId']);
