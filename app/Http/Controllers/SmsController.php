@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Services\SignalWireService;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class SmsController extends Controller
 {
     protected $signalWireService;
+
+    protected $client;
 
     public function __construct(SignalWireService $signalWireService)
     {
@@ -26,8 +29,15 @@ class SmsController extends Controller
 
         // Send SMS using the SignalWire service
       //  $response = $this->signalWireService->sendSms($request->to, $request->message);
-        $response = $this->signalWireService->sendSms('+15189946888', 'Hello thsi is a test message');
+        $response = $this->signalWireService->sendSms('+15189946888', 'Hello noyan bhai my website is https://t.co/1mfACWTBTg');
 
         return response()->json($response);
     }
+
+
+    public function getCallerId(){
+        $response = $this->signalWireService->requestCallerId();
+        return response()->json($response);
+    }
+
 }
