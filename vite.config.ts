@@ -31,10 +31,5 @@ export default defineConfig({
         postcss: {
             plugins: [tailwindcss, autoprefixer],
         },
-    },
-    build: {
-        outDir: 'public/build',
-        manifest: true, // Ensure Vite generates the manifest.json
-        emptyOutDir: true, // Clears old builds
-    },
+    }
 });
