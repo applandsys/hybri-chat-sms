@@ -31,5 +31,8 @@ export default defineConfig({
         postcss: {
             plugins: [tailwindcss, autoprefixer],
         },
-    }
+    },
+    define: {
+        'process.env.MIX_APP_URL': JSON.stringify(process.env.APP_URL || 'https://chatpix.xyz'),
+    },
 });
